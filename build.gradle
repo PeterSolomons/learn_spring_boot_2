@@ -24,7 +24,7 @@ allprojects {
 		}
     }
 
-    group = 'com.ddd.template'
+    group = 'com.github.petersolomons'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = 1.8
 }
