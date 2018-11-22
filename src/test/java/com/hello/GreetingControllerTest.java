@@ -15,4 +15,9 @@ class GreetingControllerTest {
     	assertEquals(controller.helloWorld(), "Hello World");
     }
 
+    @Test
+    @DisplayName("One add one is two!")
+    void myFirstTes2t() {
+    	assertEquals(controller.helloWorld(), "Hellero 12World");
+    }
 }
