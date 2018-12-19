@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 @ApplicationTest
 class GreetingControllerTest {
@@ -44,8 +45,8 @@ class GreetingControllerTest {
     }
 
     @Test
-    @DisplayName("Controller throws unsupported error on ")
-    @Disabled("Test disabled for some reason :)")
+    @DisplayName("Test disabled")
+    @Disabled("Test disabled for some reason")
     void myFifthTest() {
         controller.throwsUnsuportedException();
         assertTrue(false);
@@ -53,13 +54,22 @@ class GreetingControllerTest {
 
 
     @Test
-    @DisplayName("Assumed Test")
+    @DisplayName("Assumed Test stops when assumeTrue fails")
     void mySixthTest() {
         //If 'a' was not 12 then the assumption below would fail and
         //the entire test would stop and be put to ignored status.
         int a = 12;
         assumeTrue(a == 12);
         assertEquals(a, 12);
+    }
 
+    @Test
+    @DisplayName("Assumed test only applied to lamda expression")
+    void mySeventhTest(){
+        int a = 12;
+        assumingThat(a != 12, () -> {
+            assertTrue(false);
+        });
+        assertTrue(true);
     }
 }
