@@ -2,7 +2,9 @@ package com.hello;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
+
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -45,9 +47,19 @@ class GreetingControllerTest {
     @DisplayName("Controller throws unsupported error on ")
     @Disabled("Test disabled for some reason :)")
     void myFifthTest() {
-
         controller.throwsUnsuportedException();
         assertTrue(false);
     }
 
+
+    @Test
+    @DisplayName("Assumed Test")
+    void mySixthTest() {
+        //If 'a' was not 12 then the assumption below would fail and
+        //the entire test would stop and be put to ignored status.
+        int a = 12;
+        assumeTrue(a == 12);
+        assertEquals(a, 12);
+
+    }
 }
