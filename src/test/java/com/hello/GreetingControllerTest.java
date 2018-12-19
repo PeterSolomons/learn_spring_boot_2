@@ -1,5 +1,6 @@
 package com.hello;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -27,16 +28,26 @@ class GreetingControllerTest {
 
     @Test
     @DisplayName("Controller throws unsupported error on ")
-    void myThirdTest(){
+    void myThirdTest() {
         RuntimeException exception = assertThrows(UnsupportedOperationException.class, () -> {
-           controller.throwsUnsuportedException();
+            controller.throwsUnsuportedException();
         });
         assertTrue(exception.getMessage().contains("Fool of a Took!"));
     }
 
     @Test
     @DisplayName("Controller returns in certain amount of time")
-    void myFourthTest(){
+    void myFourthTest() {
         assertTimeout(Duration.ofMillis(10), () -> controller.helloWorld());
     }
+
+    @Test
+    @DisplayName("Controller throws unsupported error on ")
+    @Disabled("Test disabled for some reason :)")
+    void myFifthTest() {
+
+        controller.throwsUnsuportedException();
+        assertTrue(false);
+    }
+
 }
