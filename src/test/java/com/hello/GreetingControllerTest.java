@@ -7,17 +7,12 @@ import org.junit.jupiter.api.Test;
 
 @ApplicationTest
 class GreetingControllerTest {
-	GreetingController controller = new GreetingController();
+
+    GreetingControllerImpl controller = new GreetingControllerImpl();
 
     @Test
     @DisplayName("One add one is two!")
     void myFirstTest() {
-    	assertEquals(controller.helloWorld(), "Hello World");
-    }
-
-    @Test
-    @DisplayName("One add one is two!")
-    void myFirstTes2t() {
-    	assertEquals(controller.helloWorld(), "Hellero 12World");
+        assertEquals(controller.helloWorld(), "Hello World");
     }
 }
