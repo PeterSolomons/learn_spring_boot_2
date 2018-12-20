@@ -1,11 +1,8 @@
 package com.hello;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
-
-import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 
@@ -72,4 +69,14 @@ class GreetingControllerTest {
         });
         assertTrue(true);
     }
+
+
+    //@Test --> the @ReoetedTest runs the test, with @test the below would run 6 times not the expected 5.
+    @DisplayName("Repetition Test")
+    @RepeatedTest(value = 5, name = "{displayName} -> {currentRepetition}/{totalRepetitions}")
+    void myEighthTest(){
+        System.out.println(counter++);
+        assertTrue(true);
+    } static int counter = 0;
+
 }
