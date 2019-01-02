@@ -7,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
     }
 }
 
@@ -43,13 +44,15 @@ repositories {
 
 test {
     useTestNG()
-    useJUnitPlatform()
 
     beforeTest { descriptor ->
         logger.lifecycle("Running test: " + descriptor)
     }
 
-    failFast = true
+    useJUnitPlatform{
+        includeTags 'Interface'
+        includeEngines 'junit-jupiter'
+    }
 }
 
 dependencies {

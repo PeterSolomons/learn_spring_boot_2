@@ -1,11 +1,8 @@
 package com.hello;
 
-import org.hibernate.boot.UnsupportedOrmXsdVersionException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.lang.reflect.Executable;
 
 @RestController
 
